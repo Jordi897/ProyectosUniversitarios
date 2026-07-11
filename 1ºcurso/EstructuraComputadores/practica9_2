@@ -1,0 +1,53 @@
+.data 
+Xpide: .asciiz "X = "
+Npide: .asciiz "n = " 
+ powRes: .asciiz "X^n = " 
+ .text 
+ 
+ la $a0, Xpide 
+ li $v0,4 
+ syscall 
+ li $v0,6 
+ syscall 
+  
+ la $a0, Npide 
+ li $v0,4 
+ syscall 
+ li $v0,5 
+ syscall 
+ 
+ mov.s $f12,$f0 
+ move $a0,$v0 
+ jal pow 
+  
+ la $a0,powRes 
+ li $v0,4 
+ syscall 
+ mov.s $f12,$f0 
+ li $v0,2 
+ syscall 
+  
+ li $v0,10 
+ syscall 
+  
+ 
+ pow:  
+  li $t0, 1
+  mtc1 $t0,$f0
+  cvt.s.w $f0,$f0
+  beqz  $a0, fin
+  bgtz $a0, positivo
+  li $t0,0
+  xori $a0,$a0,0xffffffff
+  addi $a0,$a0,1
+  positivo: subi $a0,$a0,1
+  beqz $a0,finFor
+  mul.s $f12,$f12,$f12
+  j positivo
+  finFor: mov.d $f0,$f12
+  bnez $t0,fin
+  li $t1,1
+  mtc1 $t1,$f12
+  cvt.s.w $f12,$f12
+  div.s $f0,$f12,$f0
+fin: jr $ra

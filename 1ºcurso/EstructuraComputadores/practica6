@@ -1,0 +1,30 @@
+.data
+
+B: .asciiz "Introduzca un string: "
+
+.text
+
+la $a0,B #a0 es un puntero
+li $v0,4
+syscall
+
+addiu $a0,$a0, 20
+li $a1,10000000000
+li $v0, 8
+syscall
+
+bucle: lw $s0,0($a0) #introducimos en el registro s0 la posicion de memoria que apunta a
+beqz $s0, salidaBuc #Comprobar si no hay string para finalizar recuento
+bucle2: andi $s1,$s0,0x000000ff #Pillar el primer acaracter del registro y guardarlo en s1
+bne $s1,'a', condicionNegada # Comprobar si el caracter es la a
+addiu $s2,$s2,1 
+condicionNegada: srl $s0,$s0,8 # Mover los bits del registro para pillar siguiente caracter guardado
+bnez $s0,bucle2 #Comprobar si aun sigue habiendo caracteres en el registro
+addiu $a0,$a0,4 #Cambia el valor del puntero para apuntar a la siguiente posicion de memoria
+j bucle # repetir proceso mientras los registros de memoria tengan caracteres
+salidaBuc: li $v0,1 #Una vez no encontrado mas caracteres inicializacion para mostrar un numero
+move $a0,$s2
+syscall
+
+li $v0,10
+syscall

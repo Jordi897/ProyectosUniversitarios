@@ -1,0 +1,110 @@
+.data
+	#Cadena donde se almacena la string
+	cadena: .space 65
+	#Mensajes para mostrar
+	menu: .asciiz "TRATAMIENTO DE CADENAS:\n  1.-Introduce una cadena (64 caracteres máximo).\n  2.-Calcula el número de caracteres y los muestra por consola.\n  3.-Convierte en mayúsculas las vocales de la cadena y la muestra por consola.\n  4.-Finaliza el programa\n"
+	error: .asciiz "*** ELIGE UNA OPCION CORRECTA ***"
+	sobEscribir: .asciiz "Desea sobrescribirla (S/N)? "
+	IntroducirCadena: .asciiz "\nComienza a escribir y finaliza pulsando ENTER:"
+	Cantidad: .asciiz "La cadena tiene "
+	Cantidad2: .asciiz " caracteres"
+.text
+#Mostrar Error del Menu por pantalla
+j loop
+loopErr:	li $v0,4
+	la $a0, error
+	syscall
+#Mostrar el menu	
+loop:	li $v0,4
+	la $a0, menu
+	syscall
+	#pedir numero
+	li $v0,5
+	syscall
+	#Comprobar si se introdujo un numero correcto
+	blez $v0, loopErr
+	bge $v0,5, loopErr
+	bne $v0,1,F2 #Comprobar si se introduzo el 1 o no
+	#Ejecutar Funcion para Rellenar la string
+	jal Fcadena
+	j loop
+	F2: bne $v0,2,F3 #comprobar si introdujo la opocion 2
+	#Funcion que recive como parametro la direccion de la cadena que cuenta y muestra el numero de caracteres
+	la $a0,cadena
+	jal Fcontar
+	j loop
+	F3: bne $v0,3,fin #comprobar su elijio la opcion 3, por descarte si no es asi se finaliza programa por eleccion de la 4
+	#Funcion que recive la cadena de caracteres y cambia todas sus vocales minusculas a mayusculas
+	la $a0, cadena
+	jal vocales
+	j loop
+	#fin del programa
+	fin: li $v0,10
+	syscall
+#Funcion para rellenar cadena
+Fcadena:
+	lb $t0, cadena
+	beqz $t0, ifNoHayCadena #Comprobante de si ya habia una cadena anteriormente
+	#Solicitar si desea sobrescribir sobre ella
+	li $v0, 4 
+	la $a0, sobEscribir
+	syscall
+	
+	li $v0,12
+	syscall
+	bne $v0,'s',finFuncC #Comprobar si dice que si
+	
+	
+	ifNoHayCadena: #Pedir la cadena nueva
+		li $v0, 4
+		la $a0, IntroducirCadena
+		syscall
+		
+		li $v0,8
+		li $a1,65
+		la $a0,cadena
+		syscall
+		
+	finFuncC: jr $ra
+#Funcion que pide un parametro direccion de cadena que cuenta cuantos caracteres hay y lo devuelve
+Fcontar:
+	li $t0,0
+	move $t1,$a0
+	loop2: lb $t2,0($t1)
+		beq $t2,'\n',finFor #Comprobar si se llego al final de la cadena
+		addiu $t0,$t0,1 #Sumar un miembro mas
+		la $t1,1($t1) #Pasar al siguiente byte
+		j loop2
+	finFor: #Mostrar por pantalla la cantidad
+		li $v0, 4
+		la $a0, Cantidad
+		syscall
+		li $v0, 1
+		move $a0, $t0
+		syscall
+		li $v0, 4
+		la $a0, Cantidad2
+		syscall
+	move $v0, $t0 #return cantidad
+	jr $ra
+#Funcion que recive la direccion de memoria de la cadena y pone en mayusculas las vocales
+vocales:
+	lb $t0,($a0)
+	beq $t0,'\n', finVoc #Compropbar si se llego al final de la cadena
+	beq  $t0,'a',p1
+	beq  $t0,'e',p1
+	beq  $t0,'i',p1
+	beq  $t0,'o',p1
+	beq  $t0,'u',p1 #Condicionales que buscan si alguno de estos caracteres esta en el byte cargado
+	j p2 #No se encuentra vocales, procede a saltar a la siguiente iteracion
+	p1: subiu $t0, $t0, 32
+	sb $t0,($a0)
+	p2: la $a0,1($a0)
+	j vocales
+	
+	finVoc: #Mostrar la cadena resultante
+	li $v0, 4
+	la $a0, cadena
+	syscall
+		jr $ra
+	

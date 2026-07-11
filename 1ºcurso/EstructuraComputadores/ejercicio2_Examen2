@@ -1,0 +1,45 @@
+.data
+	temperaturas: .float 22.4,22.1,22.0,20.5,19.5,20.8,20.1,20.8,21.4,22.3,22.9,25.2,26.7,27.9,29.1,30.2,31.5,29.2,27.8,26.5,25.2,24.5,23.9,23.1
+	#Diferencia que se tiene en cuenta
+	fluctuacion: .float 5.0
+	#Valor con el que plicar la referencia
+	normal: .float 25.0
+	#Texto a mostrar
+	alerta: .asciiz  "Alerta a las "
+	alerta2: .asciiz  " Ahoras por fluctuación de "
+	alerta3: .asciiz  " grados\n"
+.text
+
+li $s0,0
+la $s1,temperaturas
+lwc1 $f14, fluctuacion
+lwc1 $f16, normal
+loop:	beq $s0,24, fin #Comprobar si se terminaron las horas
+	lwc1 $f18,($s1) #Cargar la temperatura correspondinte de su hora
+	sub.s $f18,$f18, $f16 #Diferencia entra la temperatura que hay y la que debe de ser
+	abs.s $f18,$f18 #Pasamos al error absoluto
+	c.le.s 0,$f18,$f14 #Condicion para activar la flag si el error es mayor al que deberia
+	bc1t  nada
+	#Muestra por pantalla si el error es mayor de lo esperado
+	li $v0, 4
+	la $a0, alerta
+	syscall
+	li $v0,1
+	move $a0, $s0
+	syscall
+	li $v0, 4
+	la $a0, alerta2
+	syscall
+	li $v0,2
+	mov.s $f12,$f18
+	syscall
+	li $v0, 4
+	la $a0, alerta3
+	syscall
+	
+	nada: la $s1, 4($s1) #recargamos la dirrecion de memoria a al de la siguiente hora
+	addiu $s0, $s0,1 #Actualizamos hora
+	j loop
+fin: li $v0,10
+syscall
+	

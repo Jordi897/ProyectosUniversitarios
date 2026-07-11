@@ -22,6 +22,8 @@ El repositorio está organizado por **carpetas que representan el año del curso
 
 Cada carpeta de curso contiene subcarpetas con las asignaturas y en ellas los proyectos, incluyendo código fuente, documentación y cualquier recurso adicional necesario.
 
+Tambien se indicara cuando un proyecto a sido en conjunto y se hara las correspondientes menciones. Si no se indica nada es porque el proyecto se a hecho unicamente por mi.
+
 ---
 
 ## 🧠 Sobre mí

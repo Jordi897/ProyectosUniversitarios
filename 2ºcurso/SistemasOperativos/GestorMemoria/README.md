@@ -1,6 +1,6 @@
 # Proyecto final Sistema operativos
 
-En este proyecto se nos diocompleta libertad en como hacer la simulacion tanto sistema operativo, como lenguaje.
+En este proyecto se nos dieron completa libertad en como hacer la simulacion tanto sistema operativo, como lenguaje.
 
 ## Editor de codigo
 

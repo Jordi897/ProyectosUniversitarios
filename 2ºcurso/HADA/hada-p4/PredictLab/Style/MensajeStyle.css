@@ -1,0 +1,17 @@
+﻿
+.card.mensaje {
+    width: 60%;
+    margin-bottom: 20px;
+}
+    .card.mensaje[data-origen="Yo"] {
+        margin-left: auto;
+        background-color: #3A86FF !important;
+    }
+    .card.mensaje[data-origen="Tu"] {
+        margin-right: auto;
+        background-color: #00B4D8 !important;
+    }
+pre {
+    white-space: pre-line !important;
+    word-break: break-word;
+}

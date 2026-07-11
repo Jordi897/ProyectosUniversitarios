@@ -1,0 +1,8 @@
+﻿.perfil {
+    min-height: 100dvh;
+    width: 100%;
+}
+.transaccion > div,
+.transaccion > form {
+    height: 100%;
+}

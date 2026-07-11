@@ -1,0 +1,89 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Public.Master.cs" Inherits="PredictLab.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>PredictLab</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="Style/searchStyle.css" rel="stylesheet" />
+    <link href="Style/MenuStyle.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">PredictLab</a>
+
+                <!-- Botón hamburguesa -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuAsp"
+                    aria-controls="menuAsp" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="menuAsp">
+        <div class="menu-wrapper d-flex align-items-center w-100 justify-content-between">
+        
+            <div class="flex-grow-1">
+                <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal"
+                    CssClass="menu"
+                    StaticMenuStyle-CssClass="menu-static"
+                    StaticMenuItemStyle-CssClass="menu-item"
+                    StaticHoverStyle-CssClass="menu-hover"
+                    DynamicMenuStyle-CssClass="menu-dropdown"
+                    DynamicMenuItemStyle-CssClass="menu-dropdown-item"
+                    DynamicHoverStyle-CssClass="menu-dropdown-hover" OnMenuItemClick="Menu1_MenuItemClick">
+                    <DynamicHoverStyle CssClass="menu-dropdown-hover"></DynamicHoverStyle>
+                    <DynamicMenuItemStyle CssClass="menu-dropdown-item" Height="30px"></DynamicMenuItemStyle>
+                    <DynamicMenuStyle CssClass="menu-dropdown"></DynamicMenuStyle>
+                    <Items>
+                        <asp:MenuItem Text="Inicio" Value="Inicio" NavigateUrl="~/Pages/Public/Default.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="Comunidades" Value="Comunidades" NavigateUrl="~/Pages/Public/Comunidad.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="Acceso" Value="Acceso">
+                            <asp:MenuItem Text="Login" Value="Login" NavigateUrl="~/Pages/Public/Acceso/Login.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Registrarse" Value="Registrarse" NavigateUrl="~/Pages/Public/Acceso/Registro.aspx"></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Info" Value="Info">
+                            <asp:MenuItem Text="QuienesSomos" Value="QuienesSomos" NavigateUrl="~/Pages/Public/Info/quienes somos.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Terminos y Condiciones" Value="Terminos y Condiciones" NavigateUrl="~/Pages/Public/Info/TerminosCondiciones.aspx"></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Divisas" Value="Divisas" NavigateUrl="~/Pages/Public/Divisa.aspx"></asp:MenuItem>
+                        <asp:MenuItem ImageUrl="~/imagenes/icon-User.png" Value="User" Text="User" NavigateUrl="~/Pages/Private/Perfil.aspx" >
+                            <asp:MenuItem Text="Perfil" Value="Perfil" NavigateUrl="~/Pages/Private/Perfil.aspx" />
+                            <asp:MenuItem Text="Logros" Value="Logros" NavigateUrl="~/Pages/Private/Logros.aspx" />
+                            <asp:MenuItem Text="Notificaciones" Value="Notificaciones" NavigateUrl="~/Pages/Private/Notificaciones.aspx"  />
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Chat" Value="Chat" NavigateUrl="~/Pages/Private/Mensajes.aspx"></asp:MenuItem>
+                    </Items>
+                    <StaticHoverStyle CssClass="menu-hover"></StaticHoverStyle>
+                    <StaticMenuItemStyle CssClass="menu-item"></StaticMenuItemStyle>
+                    <StaticMenuStyle CssClass="menu-static"></StaticMenuStyle>
+                </asp:Menu>
+            </div>
+
+            <div class="ms-3">
+                <a href="#"
+                   class="text-white text-decoration-none px-3 py-2 d-inline-block align-middle"
+                   data-bs-toggle="offcanvas"
+                   data-bs-target="#offcanvasNotificationNav"
+                   aria-controls="offcanvasNotificationNav" 
+                   style="font-size: 14px;"> Notificaciones
+                    <span class="badge bg-secondary ms-1">
+                        <asp:Label ID="LblNavNumNotis" runat="server" />
+                    </span>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</nav>
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>

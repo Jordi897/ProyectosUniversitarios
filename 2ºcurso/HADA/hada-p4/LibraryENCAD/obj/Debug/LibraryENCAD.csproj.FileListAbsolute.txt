@@ -1,0 +1,9 @@
+C:\Users\Usuario\source\repos\hada-p4\LibraryENCAD\bin\Debug\LibraryEN&CAD.dll
+C:\Users\Usuario\source\repos\hada-p4\LibraryENCAD\bin\Debug\LibraryEN&CAD.pdb
+C:\Users\Usuario\source\repos\hada-p4\LibraryENCAD\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Usuario\source\repos\hada-p4\LibraryENCAD\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Usuario\source\repos\hada-p4\LibraryENCAD\obj\Debug\LibraryENCAD.csproj.AssemblyReference.cache
+C:\Users\Usuario\source\repos\hada-p4\LibraryENCAD\obj\Debug\LibraryENCAD.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\source\repos\hada-p4\LibraryENCAD\obj\Debug\LibraryE.17E30896.Up2Date
+C:\Users\Usuario\source\repos\hada-p4\LibraryENCAD\obj\Debug\LibraryEN&CAD.dll
+C:\Users\Usuario\source\repos\hada-p4\LibraryENCAD\obj\Debug\LibraryEN&CAD.pdb

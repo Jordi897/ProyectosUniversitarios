@@ -1,0 +1,313 @@
+﻿:root {
+    --brand-dark: #1a1a1a;
+    --brand-mid: #4a4a4a;
+    --brand-muted: #888;
+    --brand-border: #e0ddd7;
+    --brand-bg: #faf9f6;
+    --brand-accent: #c9b99a;
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'Source Serif 4', Georgia, serif;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 1.85;
+    background-color: var(--brand-bg);
+    color: var(--brand-dark);
+}
+
+/* ── Sidebar ── */
+.sidebar {
+    position: sticky;
+    top: 2rem;
+    max-height: calc(100vh - 4rem);
+    overflow-y: auto;
+}
+
+    .sidebar::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    .sidebar::-webkit-scrollbar-thumb {
+        background: var(--brand-border);
+        border-radius: 2px;
+    }
+
+.sidebar-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--brand-muted);
+    margin-bottom: 0.75rem;
+}
+
+.toc-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-left: 1.5px solid var(--brand-border);
+}
+
+    .toc-list li a {
+        display: flex;
+        align-items: baseline;
+        gap: 0.6rem;
+        padding: 0.3rem 0 0.3rem 0.85rem;
+        font-size: 13px;
+        color: var(--brand-muted);
+        text-decoration: none;
+        transition: color 0.15s;
+    }
+
+        .toc-list li a:hover,
+        .toc-list li a.active {
+            color: var(--brand-dark);
+        }
+
+        .toc-list li a .toc-num {
+            font-size: 10px;
+            min-width: 1.4rem;
+            color: var(--brand-accent);
+            font-weight: 600;
+        }
+
+/* ── Page header ── */
+.page-header {
+    border-bottom: 2px solid var(--brand-dark);
+    padding-bottom: 2rem;
+    margin-bottom: 3rem;
+}
+
+.page-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    background: var(--brand-dark);
+    color: #fff;
+    padding: 4px 10px;
+    border-radius: 2px;
+    margin-bottom: 1rem;
+}
+
+.page-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--brand-dark);
+    margin-bottom: 0.5rem;
+}
+
+.page-subtitle {
+    font-size: 14px;
+    color: var(--brand-muted);
+    font-style: italic;
+    margin: 0;
+}
+
+.page-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+    .page-meta span {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 12px;
+        color: var(--brand-muted);
+    }
+
+/* ── Sections ── */
+.tc-section {
+    padding-bottom: 2.5rem;
+    margin-bottom: 2.5rem;
+    border-bottom: 1px solid var(--brand-border);
+    scroll-margin-top: 2rem;
+}
+
+    .tc-section:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+    }
+
+.section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.section-num {
+    font-family: var(--font-display);
+    font-size: 2.2rem;
+    font-weight: 400;
+    color: var(--brand-border);
+    line-height: 1;
+    min-width: 2.5rem;
+}
+
+.section-title {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--brand-dark);
+    margin: 0;
+    letter-spacing: 0.01em;
+}
+
+.section-body {
+    padding-left: 3.5rem;
+    color: var(--brand-mid);
+}
+
+    .section-body p {
+        margin-bottom: 0.75rem;
+    }
+
+        .section-body p:last-child {
+            margin-bottom: 0;
+        }
+
+/* ── Custom list ── */
+.tc-list {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0 0.85rem;
+}
+
+    .tc-list li {
+        position: relative;
+        padding-left: 1.5rem;
+        margin-bottom: 0.35rem;
+        font-size: 14px;
+        color: var(--brand-mid);
+    }
+
+        .tc-list li::before {
+            content: '—';
+            position: absolute;
+            left: 0;
+            color: var(--brand-accent);
+            font-weight: 700;
+        }
+
+/* ── Highlight block ── */
+.tc-highlight {
+    background: #fff;
+    border-left: 3px solid var(--brand-dark);
+    border-radius: 0 6px 6px 0;
+    padding: 0.85rem 1.1rem;
+    margin: 0.85rem 0;
+    font-style: italic;
+    color: var(--brand-mid);
+    font-size: 14px;
+}
+
+/* ── Contact card ── */
+.contact-card {
+    background: #fff;
+    border: 1px solid var(--brand-border);
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 0.75rem;
+}
+
+.contact-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--brand-bg);
+    border: 1px solid var(--brand-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 18px;
+    color: var(--brand-muted);
+}
+
+.contact-text strong {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--brand-dark);
+    margin-bottom: 2px;
+    font-family: var(--font-display);
+}
+
+.contact-text span {
+    font-size: 13px;
+    color: var(--brand-muted);
+}
+
+/* ── Back to top ── */
+.back-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 42px;
+    height: 42px;
+    background: var(--brand-dark);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.25s;
+    z-index: 999;
+    text-decoration: none;
+}
+
+    .back-top.visible {
+        opacity: 1;
+    }
+
+    .back-top:hover {
+        background: var(--brand-mid);
+        color: #fff;
+    }
+
+/* ── Responsive ── */
+@media (max-width: 991px) {
+    .sidebar {
+        display: none;
+    }
+
+    .section-body {
+        padding-left: 1.5rem;
+    }
+}
+
+@media (max-width: 575px) {
+    .page-title {
+        font-size: 1.8rem;
+    }
+
+    .section-body {
+        padding-left: 0;
+    }
+
+    .section-num {
+        font-size: 1.5rem;
+    }
+}

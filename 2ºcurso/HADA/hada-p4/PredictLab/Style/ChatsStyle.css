@@ -1,0 +1,28 @@
+﻿.ancho{
+    width: 15%;
+}
+
+.buscador {
+    background-color: #1E2B42;
+}
+
+.btn.chat {
+    margin: 8px 0;
+    border-radius: 12px;
+    padding: 12px;
+    text-align: left;
+    border: 2px solid #198754;
+    color: #238636;
+}
+.boton {
+    background-color: #3A86FF;
+}
+.boton:hover, .boton:focus {
+    background-color: #4803f5
+}
+.retenido {
+    width: 100% !important;
+    left: 5px;
+    position: relative;
+}
+

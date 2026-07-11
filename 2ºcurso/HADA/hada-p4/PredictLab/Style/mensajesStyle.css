@@ -1,0 +1,23 @@
+﻿.fondo {
+    background-color: #F0FFF0;
+}
+.textoPrincipal {
+    color: #F1F7FF;
+}
+
+.textoSecundario {
+    color: #9FB3C8;
+}
+.contenido {
+    background-color: #162033;
+}
+.scroll-propio {
+    flex: 1;
+    overflow-y: auto;
+    max-height: 600px;
+    width:100%;
+}
+    .scroll-propio::-webkit-scrollbar-track {
+        background: #162033 !important;
+    }
+

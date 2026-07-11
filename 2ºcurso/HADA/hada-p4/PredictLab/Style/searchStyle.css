@@ -1,0 +1,42 @@
+﻿.autocomplete {
+    position: relative;
+    width: 300px;
+}
+
+.Sugerencias {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white !important;
+    border: 1px solid #ccc;
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    max-height: 200px;
+    overflow-y: auto;
+    display: none;
+    z-index: 99999;
+    color: black !important;
+}
+
+    .Sugerencias,
+    .Sugerencias * {
+        color: black !important;
+        background-color: white !important;
+    }
+
+    .sugerenciaButton{
+        border: none;
+    }
+
+        .Sugerencias div {
+            padding: 8px 12px;
+            font-size: 14px;
+            cursor: pointer;
+            color: black !important;
+        }
+
+            .Sugerencias div:hover {
+                background-color: #f0f0f0 !important;
+            }

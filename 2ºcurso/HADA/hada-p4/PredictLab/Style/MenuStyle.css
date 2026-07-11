@@ -1,0 +1,102 @@
+﻿/* ============================
+   RESET ASP.NET MENU
+   ============================ */
+.menu-wrapper ul,
+.menu-wrapper li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    z-index: 99999;
+}
+
+.menu-wrapper a {
+    text-decoration: none;
+}
+
+/* Quitar floats y estilos inline del ASP.NET Menu */
+.menu-wrapper li,
+.menu-wrapper ul {
+    float: none;
+}
+
+/* ============================
+   NIVEL 1 (MENÚ PRINCIPAL)
+   ============================ */
+.menu-wrapper > .menu > ul {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    padding-left: 0;
+}
+
+    /* Enlaces nivel 1 */
+    .menu-wrapper > .menu > ul > li > a {
+        color: white;
+        padding: 8px 12px;
+        display: block;
+        border-radius: 4px;
+        transition: background 0.2s ease;
+    }
+
+        .menu-wrapper > .menu > ul > li > a:hover {
+            background: rgba(255,255,255,0.15);
+        }
+
+/* ============================
+   SUBMENÚS (NIVEL 2+)
+   ============================ */
+.menu-wrapper ul ul {
+    position: absolute !important;
+    top: 100%;
+    left: 0;
+    background: #333;
+    padding: 10px 0;
+    min-width: 180px;
+    border-radius: 4px;
+    display: none !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    z-index: 99999;
+}
+
+    /* Items del submenú */
+    .menu-wrapper ul ul li a {
+        color: white !important;
+        padding: 8px 15px;
+        display: block;
+    }
+
+        .menu-wrapper ul ul li a:hover {
+            background: rgba(255,255,255,0.15);
+        }
+
+/* Mostrar submenú al pasar el ratón */
+.menu-wrapper li:hover > ul {
+    display: block !important;
+}
+
+/* ============================
+   RESPONSIVE (Bootstrap collapse)
+   ============================ */
+@media (max-width: 992px) {
+    .menu-wrapper > .menu > ul {
+        flex-direction: column !important;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .menu-wrapper ul ul {
+        position: static !important;
+        box-shadow: none;
+        width: 100%;
+    }
+
+        .menu-wrapper ul ul li a {
+            padding-left: 25px;
+        }
+}
+
+.icon {
+    width: 20px;
+    height: auto;
+}
+

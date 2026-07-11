@@ -1,0 +1,354 @@
+﻿/* ============================================================
+   PredictLab — Admin Panel Styles
+   Dark palette · Eye-friendly · Bootstrap-compatible
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+/* ── CSS Variables ────────────────────────────────────────── */
+:root {
+    /* Background layers */
+    --bg-base: #0f1117;
+    --bg-surface: #171b26;
+    --bg-card: #1e2333;
+    --bg-card-hover: #242940;
+    --bg-table-head: #151929;
+    --bg-row-alt: #1a1f2e;
+    --bg-row-hover: #222840;
+    /* Accent & brand */
+    --accent: #4f8ef7;
+    --accent-soft: #3a6fd4;
+    --accent-glow: rgba(79, 142, 247, 0.18);
+    --accent-muted: rgba(79, 142, 247, 0.08);
+    /* Text */
+    --text-primary: #dde3f0;
+    --text-secondary: #8a94b0;
+    --text-muted: #505878;
+    --text-heading: #edf0fa;
+    /* Borders */
+    --border: rgba(255, 255, 255, 0.07);
+    --border-accent: rgba(79, 142, 247, 0.30);
+    /* Status */
+    --green: #3ecf8e;
+    --yellow: #f5c842;
+    --red: #f26c6c;
+    /* Sizing */
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+    --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.40);
+    --shadow-glow: 0 0 0 3px var(--accent-glow);
+    /* Table scroll height */
+    --table-max-h: 320px;
+    /* Fonts */
+    --font-body: 'DM Sans', sans-serif;
+    --font-mono: 'Space Mono', monospace;
+}
+
+/* ── Base Reset & Body ────────────────────────────────────── */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ── Dashboard Wrapper ────────────────────────────────────── */
+.admin-dashboard {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+}
+
+/* ── Stats Grid ───────────────────────────────────────────── */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 2.5rem;
+}
+
+.stat-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 1.5rem 1.75rem;
+    position: relative;
+    overflow: hidden;
+}
+
+    .stat-card::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, var(--accent-muted), transparent 60%);
+        pointer-events: none;
+    }
+
+    .stat-card::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 20%;
+        bottom: 20%;
+        width: 3px;
+        background: var(--accent);
+        border-radius: 0 2px 2px 0;
+    }
+
+    .stat-card h3 {
+        font-size: 0.75rem;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--text-secondary);
+        margin: 0;
+    }
+
+    .stat-card .num,
+    .stat-card asp\.Label {
+        font-family: var(--font-mono);
+        font-size: 2.25rem;
+        font-weight: 700;
+        color: var(--text-heading);
+        line-height: 1.1;
+    }
+
+/* ── Section Title ────────────────────────────────────────── */
+.panel-section {
+    margin-bottom: 2.25rem;
+}
+
+    .panel-section h2 {
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 0.10em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 0.75rem;
+        padding-left: 0.25rem;
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+    }
+
+        .panel-section h2::before {
+            content: '';
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 8px var(--accent);
+        }
+
+/* ── Card ─────────────────────────────────────────────────── */
+.card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+    overflow: hidden;
+    transition: border-color 0.2s ease;
+}
+
+    .card:hover {
+        border-color: var(--border-accent);
+    }
+
+    /* ── Scrollable Table Wrapper ─────────────────────────────── */
+    .card .table-responsive,
+    .card > table.table {
+        display: block;
+    }
+
+    /* Wrap the table in a scrollable container */
+    .card > table.table,
+    .card .table-responsive {
+        width: 100%;
+    }
+
+/* Apply scroll directly on the card's table */
+.card {
+    overflow-y: auto;
+    max-height: var(--table-max-h);
+    /* keep border-radius visible */
+}
+
+    /* Re-set card padding — tables fill edge-to-edge */
+    .card.stat-card {
+        overflow: visible;
+        max-height: none;
+    }
+
+/* ── Table Styles ─────────────────────────────────────────── */
+table.table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+    color: var(--text-primary);
+    /* Ensure table doesn't shrink below card */
+    min-width: 520px;
+}
+
+    /* Sticky thead so it stays visible on scroll */
+    table.table thead {
+        position: sticky;
+        top: 0;
+        z-index: 2;
+        background: var(--bg-table-head);
+    }
+
+        table.table thead tr {
+            border-bottom: 2px solid var(--border-accent);
+        }
+
+    table.table th {
+        padding: 0.85rem 1.25rem;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: var(--text-secondary);
+        white-space: nowrap;
+        background: var(--bg-table-head);
+    }
+
+    table.table td {
+        padding: 0.8rem 1.25rem;
+        vertical-align: middle;
+        border-bottom: 1px solid var(--border);
+        transition: background 0.15s ease;
+    }
+
+    /* Zebra rows */
+    table.table tbody tr:nth-child(even) td {
+        background: var(--bg-row-alt);
+    }
+
+    table.table tbody tr:hover td {
+        background: var(--bg-row-hover);
+    }
+
+    /* Last row — no bottom border */
+    table.table tbody tr:last-child td {
+        border-bottom: none;
+    }
+
+    /* ── Numeric cells: monospace ─────────────────────────────── */
+    table.table td:last-child,
+    table.table td:nth-child(3) {
+        font-family: var(--font-mono);
+        font-size: 0.82rem;
+    }
+
+/* ── Bootstrap Button Overrides ───────────────────────────── */
+.btn {
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    border-radius: var(--radius-sm);
+    padding: 0.35rem 0.9rem;
+    transition: all 0.18s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: #fff;
+    box-shadow: 0 2px 10px rgba(79, 142, 247, 0.30);
+}
+
+    .btn-primary:hover,
+    .btn-primary:focus {
+        background: var(--accent-soft);
+        box-shadow: 0 2px 16px rgba(79, 142, 247, 0.50);
+        transform: translateY(-1px);
+        color: #fff;
+    }
+
+    .btn-primary:active {
+        transform: translateY(0);
+        box-shadow: none;
+    }
+
+.btn-sm {
+    padding: 0.28rem 0.75rem;
+    font-size: 0.74rem;
+}
+
+/* ── Scrollbar Styling (Webkit) ───────────────────────────── */
+.card::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+.card::-webkit-scrollbar-track {
+    background: var(--bg-card);
+}
+
+.card::-webkit-scrollbar-thumb {
+    background: var(--border-accent);
+    border-radius: 10px;
+}
+
+    .card::-webkit-scrollbar-thumb:hover {
+        background: var(--accent);
+    }
+
+/* Firefox */
+.card {
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-accent) var(--bg-card);
+}
+
+/* ── Bootstrap Overrides (global dark surface) ────────────── */
+.table-striped > tbody > tr:nth-of-type(odd) > * {
+    --bs-table-bg-type: transparent;
+}
+
+.table-hover > tbody > tr:hover > * {
+    --bs-table-bg-state: transparent;
+}
+
+.table > :not(caption) > * > * {
+    background-color: transparent;
+    color: var(--text-primary);
+    box-shadow: none;
+}
+
+/* ── Responsive tweaks ────────────────────────────────────── */
+@media (max-width: 768px) {
+    .admin-dashboard {
+        padding: 1rem 0.75rem 3rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    :root {
+        --table-max-h: 260px;
+    }
+}
+
+@media (max-width: 480px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stat-card .num {
+        font-size: 1.75rem;
+    }
+}

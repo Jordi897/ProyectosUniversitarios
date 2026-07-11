@@ -1,0 +1,62 @@
+1 [0 procesoManolo 500] [500 Hueco 1500]
+
+2 [0 procesoManolo 500] [500 proceso 500] [1000 Hueco 1000]
+
+3 [0 proceso2 300] [300 Hueco 200] [500 proceso 500] [1000 Hueco 1000]
+
+4 [0 proceso2 300] [300 proceso3 100] [400 Hueco 100] [500 proceso 500] [1000 Hueco 1000]
+
+5 [0 proceso2 300] [300 proceso3 100] [400 Hueco 100] [500 proceso 500] [1000 proceso4 600] [1600 Hueco 400]
+
+6 [0 proceso2 300] [300 proceso3 100] [400 proceso5 100] [500 proceso 500] [1000 proceso4 600] [1600 Hueco 400]
+
+7 [0 proceso2 300] [300 proceso3 100] [400 proceso5 100] [500 proceso6 100] [600 Hueco 1400]
+
+8 [0 proceso2 300] [300 proceso3 100] [400 proceso5 100] [500 proceso6 100] [600 proceso7 100] [700 Hueco 1300]
+
+9 [0 Hueco 300] [300 proceso3 100] [400 proceso5 100] [500 Hueco 100] [600 proceso7 100] [700 Hueco 1300]
+
+10 [0 p10 100] [100 Hueco 200] [300 proceso3 100] [400 proceso5 100] [500 Hueco 100] [600 proceso7 100] [700 Hueco 1300]
+
+11 [0 p10 100] [100 p11 373] [473 Hueco 127] [600 proceso7 100] [700 Hueco 1300]
+
+12 [0 p10 100] [100 p11 373] [473 p12 101] [574 Hueco 26] [600 proceso7 100] [700 Hueco 1300]
+
+13 [0 p10 100] [100 p11 373] [473 p12 101] [574 p13 783] [1357 Hueco 643]
+
+14 [0 p10 100] [100 p11 373] [473 p12 101] [574 p13 783] [1357 Hueco 643]
+
+15 [0 p10 100] [100 p11 373] [473 Hueco 101] [574 p13 783] [1357 Hueco 643]
+
+16 [0 p10 100] [100 p11 373] [473 Hueco 101] [574 p13 783] [1357 Hueco 643]
+
+17 [0 p10 100] [100 Hueco 474] [574 p13 783] [1357 Hueco 643]
+
+18 [0 Hueco 574] [574 p13 783] [1357 Hueco 643]
+
+19 [0 p9 2000]
+
+20 [0 p9 2000]
+
+21 [0 p9 2000]
+
+22 [0 p9 2000]
+
+23 [0 p14 532] [532 p15 1045] [1577 Hueco 423]
+
+24 [0 p14 532] [532 p15 1045] [1577 Hueco 423]
+
+25 [0 p14 532] [532 p15 1045] [1577 Hueco 423]
+
+26 [0 p14 532] [532 Hueco 1468]
+
+27 [0 p14 532] [532 Hueco 1468]
+
+28 [0 p14 532] [532 Hueco 1468]
+
+29 [0 p14 532] [532 Hueco 1468]
+
+30 [0 p14 532] [532 Hueco 1468]
+
+31 [0 Hueco 2000]
+

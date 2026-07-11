@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="GestorMemoria/GestorMemoria.vcxproj" Id="161210e2-f5f9-4588-9462-d460b9d3ce37" />
+</Solution>
